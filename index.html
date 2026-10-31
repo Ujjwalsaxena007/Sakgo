@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d0b">
+  <meta name="description" content="SAKGO — your AI-powered travel planner. Plan smarter, explore further.">
+  <title>SAKGO — Your Journey, Your Vibe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="SAKGO home">
+      <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M29 7H15C7 7 5 18 14 21l9 3c6 2 4 9-2 9H8" fill="none" stroke="currentColor" stroke-width="5"
+            stroke-linecap="round" />
+          <path d="M8 13 4 19l8-1M31 28l5-6-8 1" fill="none" stroke="#c7f36b" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg></span>
+      <span class="brand-word">SAK<span>GO</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#planner" data-i18n="navPlan">Plan a trip</a><a href="#discover" data-i18n="navDiscover">Discover</a><a
+        href="#saved" data-i18n="navSaved">Saved trips</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">हिंदी</button>
+      <button class="button button-quiet" id="loginButton" type="button" data-i18n="signIn">Sign in</button>
+      <a class="button button-lime nav-cta" href="#planner" data-i18n="startPlanning">Start planning <span>↗</span></a>
+      <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span><span data-i18n="eyebrow">YOUR AI TRAVEL COMPANION</span></div>
+        <h1 data-i18n="heroTitle">Less scrolling.<br><span>More exploring.</span></h1>
+        <p class="hero-description" data-i18n="heroDesc">Your next great trip starts here. Build a plan around your
+          vibe, your budget, and the places you’ve always wanted to see.</p>
+        <div class="hero-actions"><a class="button button-lime button-large" href="#planner" data-i18n="planMyTrip">Plan
+            my trip <span>↗</span></a><a class="text-link" href="#discover" data-i18n="exploreIdeas">Explore ideas
+            <span>↓</span></a></div>
+        <div class="trust-row">
+          <div class="avatar-stack"><span>✈</span><span>⌁</span><span>◎</span></div>
+          <div><strong data-i18n="madeFor">Made for your kind of travel</strong><small data-i18n="madeForSub">Solo
+              escapes · Friends · Family · Weekend breaks</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-topline"><span>TRAVEL / YOUR WAY</span><span class="live-dot">● LIVE IDEAS</span></div>
+        <div class="destination-photo">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85"
+            alt="Snowy mountain peaks under a starry sky">
+          <div class="photo-gradient"></div>
+          <div class="photo-label"><span class="mini-label">FEATURED ESCAPE</span>
+            <h2>Find your<br>somewhere.</h2>
+            <p>Mountains, memories & a little magic.</p>
+          </div>
+          <div class="floating-tag tag-top"><span class="tag-icon">✦</span><span><b>Made for you</b><small>Not a generic
+                itinerary</small></span></div>
+          <div class="floating-tag tag-bottom"><span class="weather-icon">☀</span><span><b>Good days ahead</b><small>One
+                plan. More possibilities.</small></span></div>
+          <div class="photo-coordinate">30° 05' N&nbsp; 78° 16' E</div>
+        </div>
+        <div class="visual-footer"><span>01 / DISCOVER</span><span>YOUR NEXT CHAPTER AWAITS</span><span>✳</span></div>
+      </div>
+    </section>
+
+    <section class="planner-section section-wrap" id="planner">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-number">01</span><span data-i18n="plannerEyebrow">THE TRIP
+              BUILDER</span></div>
+          <h2 data-i18n="plannerTitle">Where to next?</h2>
+        </div>
+        <p data-i18n="plannerDesc">A few details in. A trip that feels like you.</p>
+      </div>
+      <form id="tripForm" class="planner-card">
+        <div class="field destination-field"><label for="destination" data-i18n="destinationLabel">DESTINATION</label>
+          <div class="input-with-icon"><span>⌖</span><input id="destination" name="destination"
+              placeholder="e.g. Manali, Jaipur, Goa" required maxlength="80"></div>
+        </div>
+        <div class="field"><label for="duration" data-i18n="durationLabel">HOW LONG?</label><select id="duration"
+            name="duration">
+            <option value="2">2 days</option>
+            <option value="3" selected>3 days</option>
+            <option value="5">5 days</option>
+            <option value="7">7 days</option>
+            <option value="10">10 days</option>
+          </select></div>
+        <div class="field"><label for="budget" data-i18n="budgetLabel">BUDGET / PERSON</label><select id="budget"
+            name="budget">
+            <option value="budget">Budget · ₹</option>
+            <option value="balanced" selected>Balanced · ₹₹</option>
+            <option value="premium">Premium · ₹₹₹</option>
+          </select></div>
+        <div class="field"><label for="travelStyle" data-i18n="styleLabel">YOUR VIBE</label><select id="travelStyle"
+            name="travelStyle">
+            <option value="adventure">Adventure</option>
+            <option value="food">Food & culture</option>
+            <option value="relax">Slow & relaxed</option>
+            <option value="nature">Nature & views</option>
+            <option value="mixed" selected>A bit of everything</option>
+          </select></div>
+        <button class="button button-lime generate-button" type="submit"><span data-i18n="generate">Build my
+            itinerary</span><span>↗</span></button>
+      </form>
+      <p class="privacy-note"><span>✳</span> <span data-i18n="demoNote">Demo mode: this creates a starter itinerary
+          locally. Live AI, accounts and bookings need backend/API integration.</span></p>
+      <div id="itineraryResult" class="itinerary-result" aria-live="polite"></div>
+    </section>
+
+    <section class="discover-section section-wrap" id="discover">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-number">02</span><span data-i18n="discoverEyebrow">A LITTLE
+              INSPIRATION</span></div>
+          <h2 data-i18n="discoverTitle">Pick a direction.</h2>
+        </div>
+        <a class="text-link" href="#planner" data-i18n="makeItYours">Make it yours ↗</a>
+      </div>
+      <div class="destination-grid">
+        <button class="destination-card card-manali" data-destination="Manali" type="button"><img
+            src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=80"
+            alt="Himalayan mountains near Manali" loading="lazy"><span class="destination-index">01 /
+            MOUNTAINS</span><span class="destination-info"><span><b>Manali</b><small>Chase the
+                altitude</small></span><span class="round-arrow">↗</span></span></button>
+        <button class="destination-card card-jaipur" data-destination="Jaipur" type="button"><img
+            src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=900&q=80"
+            alt="Historic architecture in Jaipur" loading="lazy"><span class="destination-index">02 /
+            CULTURE</span><span class="destination-info"><span><b>Jaipur</b><small>Colour outside the
+                lines</small></span><span class="round-arrow">↗</span></span></button>
+        <button class="destination-card card-goa" data-destination="Goa" type="button"><img
+            src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
+            alt="Tropical beach in Goa" loading="lazy"><span class="destination-index">03 / COAST</span><span
+            class="destination-info"><span><b>Goa</b><small>Let the days drift</small></span><span
+              class="round-arrow">↗</span></span></button>
+      </div>
+    </section>
+
+    <section class="saved-section section-wrap" id="saved">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-number">03</span><span data-i18n="savedEyebrow">YOUR
+              COLLECTION</span></div>
+          <h2 data-i18n="savedTitle">Trips worth keeping.</h2>
+        </div><span class="saved-count" id="savedCount">0 SAVED</span>
+      </div>
+      <div id="savedTrips" class="saved-trips">
+        <div class="empty-state"><span class="empty-icon">↗</span>
+          <p data-i18n="emptySaved">Your saved trips will show up here.</p><a href="#planner" class="text-link"
+            data-i18n="createFirst">Create your first itinerary ↗</a>
+        </div>
+      </div>
+    </section>
+    <section class="closing-banner section-wrap">
+      <div><span class="mini-label">SAKGO / 001</span>
+        <h2 data-i18n="closingTitle">The world is big.<br><span>Your plans can be simple.</span></h2>
+      </div><a class="button button-lime button-large" href="#planner" data-i18n="letsGo">Let's go <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="#"><span class="brand-word">SAK<span>GO</span></span></a>
+    <p data-i18n="footerLine">Built for curious minds and open roads.</p><span>© <span id="year"></span> SAKGO · <span
+        data-i18n="footerNote">Concept preview</span></span>
+  </footer>
+
+  <dialog id="authDialog" class="auth-dialog"><button class="dialog-close" id="closeDialog" aria-label="Close"
+      type="button">×</button>
+    <div class="eyebrow"><span class="pulse"></span> SAKGO ACCOUNT</div>
+    <h2 id="authTitle">Welcome back.</h2>
+    <p class="dialog-copy">Sign-in is a UI preview for now. Secure accounts need a backend.</p>
+    <form id="authForm"><label for="authEmail">EMAIL</label><input id="authEmail" type="email"
+        placeholder="you@example.com" required><label for="authPassword">PASSWORD</label><input id="authPassword"
+        type="password" placeholder="At least 8 characters" minlength="8" required><button
+        class="button button-lime button-large" type="submit" id="authSubmit">Continue ↗</button></form>
+    <p id="authMessage" class="auth-message" aria-live="polite"></p>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+
+</html>
